@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+{% assign topic = page.tag %}
+{% assign notes = '' | split: ',' %}
+
+{% for note in site.documents %}
+    {% if note.tags contains page.tag %}
+      {% assign notes = notes | push: note %}
+    {% endif %}
+{% endfor %}
+{% assign notes = notes | sort: 'date' | reverse %}
+
+<content>
+<h1><a href="/topics" class="muted internal-link"><span class="muted">Topics</span></a> <span class="faint font-normal">/</span> {{ topic | capitalize }}</h1>
+
+<div class="pn1 muted">
+<p>{% if notes.size > 1 %}{{ notes | size }} entries{% else %}1 entry{% endif %} about this topic</p>
+</div>
+
+<ul class="list-plain tabular-nums">
+{% for note in notes %}
+  <li><a href="{{ note.url }}" class="internal-link plain"><flex class="align-baseline"><span class="muted ppr flex-shrink small mh nowrap">{{ note.date | date: "%Y-%m-%d" }}</span><u class="">{{ note.title }}</u></a></flex></li>
+{% endfor %}
+</ul>
+</content>

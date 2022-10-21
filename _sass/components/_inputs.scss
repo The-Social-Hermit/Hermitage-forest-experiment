@@ -1,0 +1,68 @@
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: var(--color-primary);
+}
+
+label {
+  color: var(--color-primary);
+  display: block;
+  padding: 0 0 0.2em 0;
+}
+
+input:focus {
+  outline:none;
+}
+
+::-webkit-input-placeholder {
+    color:var(--color-muted);
+}
+::-moz-placeholder {
+    color:var(--color-muted);
+}
+::-ms-placeholder {
+    color:var(--color-muted);
+}
+::placeholder {
+    color:var(--color-muted);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"], 
+textarea {
+  border-radius: 0;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--color-outline);
+  margin-bottom: 1.5em;
+  padding: .5em 0;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus, 
+textarea:focus {
+  border-bottom: 1px solid var(--color-action);
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: var(--input-width);
+}
+input[type="submit"],
+button {
+  -webkit-appearance: none;
+  border-radius: 3px;
+  background-color: var(--color-primary);
+  border:1px solid var(--color-primary);
+  color: var(--color-background-primary);
+  font-weight: 400;
+  padding: 0.5em 1em;}
+
+input[type="submit"]:hover,
+button:hover {
+  border: 1px solid var(--color-action);
+  background-color: var(--color-action);
+  cursor: pointer;
+}

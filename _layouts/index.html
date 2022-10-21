@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<article>
+  <div>
+    <content>
+      {{ content }}
+    </content>
+  </div>
+</article>
+
+{% assign notes = site.notes | sort: 'date' | reverse %}
+{% assign latest = notes | first %}
+{% assign topics =  site.notes | map: 'tags' | uniq | sort %}
+
+<div class="wrap">
+  <p><a href="{{ latest.url }}" class="muted">Latest</a></p>
+
+  <div class="">
+    <a href="{{ latest.url }}" class="plain">
+      <h2>{{ latest.title }}</h2>
+      <div class="muted small pb"><time datetime="{{ latest.date | date_to_xmlschema }}">{{ latest.date | date: "%B %e, %Y" }}</time> <span class="faint">&bull;</span> <span class="reading-time" title="Estimated read time">{% assign words = latest.content | number_of_words %}{% if words < 360 %}1 minute read{% else %}{{ words | divided_by:220 }} minute read{% endif %}</span></div>
+      <div class="small muted">{{ latest.content | replace: "[[", ""  | replace: "]]", "" | strip_html | truncatewords: 50 }} Keep&nbsp;reading&nbsp;&rarr;</div>  
+    </a>
+  </div>
+
+  <div class="mn2 ms2 pn1 ps2 bt bb">
+    <p><a href="/topics" class="muted internal-link">Topics</a></p>
+    <div class="line-height-loose">
+    {% for topic in topics %}
+      <a href="/topics/{{topic}}" class="internal-link">{{ topic }}</a>{% unless forloop.last %}<span class="muted">,</span>{% endunless %}
+    {% endfor %}
+    </div>
+  </div>
+
+  <p class="muted"><a href="/writing" class="muted internal-link">Writing</a></p>
+
+  <ul class="list-plain tabular-nums">
+  {% for note in notes %}
+    <li><a href="{{ note.url }}" class="internal-link plain "><flex class="align-baseline"><span class="muted ppr flex-shrink small mh nowrap">{{ note.date | date: "%Y-%m-%d" }}</span><u>{{ note.title }}</u></a></flex></li>
+  {% endfor %}
+  </ul>
+</div>

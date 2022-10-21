@@ -1,0 +1,258 @@
+*, *:before, *:after {
+  box-sizing:inherit;}
+
+::selection {
+  background: var(--color-selection);
+}
+
+::-moz-selection {
+  background: var(--color-selection);
+}
+
+html {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  font-size: 62.5%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background-color: var(--color-background-primary);
+  font-family: var(--font-family);
+  margin: 2vw auto 0 auto;
+  line-height: 1.5;
+  padding: 2rem 0 24rem;
+  overflow-x: hidden;
+  font-size: 1.8rem;
+  font-size: calc(1.5rem + 0.25vw);
+  color: var(--color-primary);
+}
+
+#tooltip-wrapper {
+  background: var(--color-background-primary);
+  padding: 1.5em;
+  border: 1px solid var(--color-outline);
+  border-radius: 6px;
+  overflow: scroll;
+  position: absolute;
+  width: 400px;
+  max-width:  70vw;
+  height: 350px;
+  max-height: 70vh;
+  font-size: 0.825em;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  opacity: 0;
+  transition: opacity 100ms;
+}
+
+small, .small {
+  font-size: var(--font-small);
+  line-height: 1.4;
+}
+
+.smaller {
+  font-size: var(--font-smaller);
+  line-height: 1.4;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+footer {
+  margin: 2em auto;
+  max-width: var(--wrap-wide);
+  width: var(--wrap-normal);
+  padding-top: 1em;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: var(--border-radius);
+}
+body:not(.theme-dark) .multiply {
+  mix-blend-mode: multiply;
+}
+
+iframe,
+video {
+  border-radius: var(--border-radius);
+  display: block;
+}
+
+p {
+  max-width: var(--wrap-normal);
+}
+
+blockquote {
+  padding-left: 1.5em;
+  margin: 1.5em 0;
+  border-left: 2px solid var(--color-primary);
+
+  p {
+    margin: 0;
+  }
+}
+
+/* Align */
+.l { text-align:left;}
+.r { text-align:right;}
+.c { text-align:center;}
+.cc { margin-left:auto; margin-right:auto;}
+.vt { vertical-align:top; }
+
+/* Borders */
+.ba { border: 1px solid var(--color-outline);}
+.bt { border-top: 1px solid var(--color-outline);}
+.br { border-right: 1px solid var(--color-outline);}
+.bb { border-bottom: 1px solid var(--color-outline);}
+.bl { border-left: 1px solid var(--color-outline);}
+
+.ra { 
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+hr {
+  width: 100%;
+  border: 0;
+  height: 1px;
+  margin: 1.5em 0;
+  background: var(--color-outline);
+}
+
+content {
+  display: block;
+  max-width: var(--wrap-wide);
+  width: var(--wrap-normal);
+  margin-left: auto;
+  margin-right: auto;
+
+  img {
+    margin-bottom: 0.5em;
+  }
+
+  .wide {
+    // Use capital Min() otherwise Sass throws errors
+    // See https://github.com/sass/sass/issues/2849
+    padding: 1.5em 0;
+    max-width: Min(100vw,var(--wrap-wide));
+    width: Min(100vw,var(--wrap-wide));
+    margin-left: calc((Min(100vw,var(--wrap-wide)) - 100%)/-2);
+  }
+}
+
+figure {
+  margin: 0;
+  padding: 1.5em 0;
+  text-align: center;
+}
+figcaption {
+  font-size: var(--font-smaller);
+  line-height: 1.4;
+  color: var(--color-muted);
+  padding: 1em;
+}
+
+.fr {
+  float: right;
+}
+
+flex, .flex {
+  display: flex;
+}
+.align-center {
+  align-items: center;
+}
+.align-baseline {
+  align-items: baseline;
+}
+.flex-grow {
+  flex-grow: 1;
+}
+.flex-shrink {
+  flex-shrink: 1;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+.font-normal {
+  font-weight: 400;
+}
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+.line-height-loose {
+  line-height: 1.6;
+}
+
+.wrap {
+  max-width: var(--wrap-normal);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+content hr {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  margin-top: calc(2em + 2vh);
+  margin-bottom: calc(2em + 2vh);
+  display: block;
+  border: 0;
+  background: none;
+  text-align: center;
+  overflow: visible;
+  &:before {
+    content: '\2022\2022\2022';
+    display: inline-block;
+    font-size: .5em;
+    font-size: calc(.8em + .2vw);
+    margin-left: 0.6em;
+    letter-spacing: 1.25em;
+    color: var(--color-faint);
+    position: relative;
+    top: -0.75em;
+  }
+}
+/* Typography */
+.muted {
+  color: var(--color-muted);
+}
+.faint {
+  color: var(--color-faint);
+}
+
+nav {
+  margin: 0 auto 3em;
+  width: var(--wrap-normal);
+  max-width: var(--wrap-wide);
+}
+
+table {
+  border-top: 1px solid var(--color-outline); 
+  width: 100%;
+  border-collapse:collapse;
+  border-spacing:0;
+}
+tr {
+  border-bottom: 1px solid var(--color-outline);
+}
+td {
+  padding: 0.5em 0;
+}
+
+code {
+  background: var(--color-background-secondary);
+  padding: 0.1em 0.2em;
+  border-radius: 4px;
+}
+
+@media (max-width: $media-phone) {
+  .mh {
+    display: none;
+  }
+}

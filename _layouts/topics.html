@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+{% assign topics =  site.notes | map: 'tags' | uniq | sort %}
+
+<div class="wrap">
+  <h1>Topics</h1>
+
+  <div class="pn1">
+  {% for topic in topics %}
+    <a href="/topics/{{topic}}" class="internal-link">{{ topic }}</a>{% unless forloop.last %}<span class="muted">,</span>{% endunless %}
+  {% endfor %}
+  </div>
+</div>
